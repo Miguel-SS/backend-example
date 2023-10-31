@@ -6,6 +6,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.15.RELEASE"
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
+	kotlin("plugin.jpa") version "1.6.10"
 }
 
 group = "com.backend"
@@ -24,6 +25,12 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	// JPA Dependencies
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
+	// PostgreSQL
+	runtimeOnly("org.postgresql:postgresql")
 }
 
 tasks.withType<KotlinCompile> {

@@ -1,16 +1,16 @@
 package com.backend.example
 
-import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.repository.query.Param
+import org.springframework.stereotype.Repository
+import java.util.Optional
 
+@Repository
+interface UserRepository : JpaRepository<User, Long> {
+    fun findByEmail(@Param("email") email : String) : Optional<User>
+}
 
-val user: User = User(
-    1,
-    "John",
-    "Doe",
-    "john@mail.com"
-)
-
-
+/*
 interface UserRepository {
     fun findAll(): List<User>?
 
@@ -49,3 +49,4 @@ class AbstractUserRepository(
     }
 
 }
+*/
