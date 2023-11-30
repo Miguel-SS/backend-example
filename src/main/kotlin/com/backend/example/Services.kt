@@ -18,12 +18,14 @@ interface UserService {
      */
     fun findById(id: Long) : User?
 
+
     /**
      * Save and flush a User entity in the database
      * @param User
      * @return the User created
      */
     fun create(user : User) : User?
+
 }
 
 
@@ -40,6 +42,14 @@ class AbstractUserService(
     override fun findById(id: Long): User? {
         return userRepository.findById(id).orElse(null)
             ?: throw NoSuchElementException(String.format("The user with the id: %s not found", id))
+
+        /*
+        try {
+            return userRepository.findById(id)
+        } catch (error: NoSuchElementException) {
+            throw error
+        }
+         */
     }
 
     override fun create(user: User): User? {

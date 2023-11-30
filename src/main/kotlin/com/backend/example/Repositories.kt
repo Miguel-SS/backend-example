@@ -5,10 +5,12 @@ import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 import java.util.Optional
 
+
 @Repository
 interface UserRepository : JpaRepository<User, Long> {
     fun findByEmail(@Param("email") email : String) : Optional<User>
 }
+
 
 /*
 interface UserRepository {
@@ -49,4 +51,5 @@ class AbstractUserRepository(
     }
 
 }
+
 */

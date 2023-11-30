@@ -2,6 +2,7 @@ package com.backend.example
 
 import javax.persistence.*
 
+
 @Entity
 @Table(name="users")
 data class User(
@@ -13,6 +14,7 @@ data class User(
     var lastName: String?,
     var email: String,
 ) {
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
@@ -35,5 +37,14 @@ data class User(
         return "User(id=$id, name=$name, lastName=$lastName, email='$email')"
     }
 
-
 }
+
+
+/*
+data class User(
+    var id: Long,
+    var name: String,
+    var lastName: String,
+    var email: String
+)
+*/

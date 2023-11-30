@@ -30,9 +30,11 @@ class UserController(private val userService: UserService) {
     @ResponseBody
     fun findById(@PathVariable id: Long) = userService.findById(id)
 
+
     @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE], produces = [MediaType.APPLICATION_JSON_VALUE])
     @ResponseBody
     fun create(@RequestBody user: User): User? {
         return userService.create(user)
     }
+
 }
